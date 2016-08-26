@@ -9,21 +9,23 @@ function checkApp() {
 }
 
 function softwareCheck() {
-    for APP_NAME in shorthand; do
+    for APP_NAME in $@; do
         checkApp $APP_NAME
     done
 }
 
 function mkPage () {
-    nav="$1"
-    content="$2"
-    html="$3"
+    title="$1"
+    nav="$2"
+    content="$3"
+    html="$4"
 
-    echo "Rendering $html from $content and $nav"
-    shorthand \
-        -e "{{navContent}} :import-markdown: $nav" \
-        -e "{{pageContent}} :import-markdown: $content" \
-        page.shorthand > $html
+    echo "Rendering $html"
+    mkpage \
+        "title=text:$title" \
+        "nav=$nav" \
+        "content=$content" \
+        page.tmpl > $html
 }
 
 function mkSite() {
@@ -35,6 +37,8 @@ function mkSite() {
         FOLDER=$(dirname "$ITEM")
         if [ -f "$FOLDER/$FNAME" ] && [ "$FNAME" != "nav.md" ]; then
             EXT=${FNAME:(-3)}
+            # Title is based on theh folder name.
+	        TITLE=${FOLDER:2}
             if [ "$EXT" = ".md" ]; then
                 HTML_FNAME=$(basename $FNAME .md).html
                 if [ "$HTML_FNAME" = "README.html" ]; then
@@ -42,9 +46,9 @@ function mkSite() {
                 fi
                 # Prefer the local directory's nav.md to the root level one.
                 if [ -f "$FOLDER/nav.md" ]; then
-                    mkPage "$FOLDER/nav.md" "$FOLDER/$FNAME" "$FOLDER/$HTML_FNAME"
-                else
-                    mkPage "nav.md" "$FOLDER/$FNAME" "$FOLDER/$HTML_FNAME"
+                    mkPage "$TITLE" "$FOLDER/nav.md" "$FOLDER/$FNAME" "$FOLDER/$HTML_FNAME" 
+                else 
+                    mkPage "$TITLE" "nav.md" "$FOLDER/$FNAME" "$FOLDER/$HTML_FNAME" 
                 fi
                 git add "$FOLDER/$FNAME" "$FOLDER/$HTML_FNAME"
             fi
@@ -53,7 +57,7 @@ function mkSite() {
 }
 
 echo "Checking necessary software is installed"
-softwareCheck
+softwareCheck mkpage
 echo "Generating website"
 mkSite "."
 
