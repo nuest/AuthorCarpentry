@@ -72,7 +72,7 @@ When the library makes changes to the repository, you may want to update your pe
 + Click "Create pull request" two times to submit the request.  
 + Accept the pull request by clicking the green button twice again.  
 
-The only place you'll run into problems is if files are in conflict between the two versions-in this case you'll have to manually inspect and resolve the confilict.
+The only place you'll run into problems is if files are in conflict between the two versions-in this case you'll have to manually inspect and resolve the conflict.
 
 To update the copy on your local machine, type in your local terminal in the AuthorCarpentry directory
 
