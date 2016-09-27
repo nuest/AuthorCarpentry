@@ -8,8 +8,6 @@ Digital Object Identifiers (DOIs) are unique names assigned to research outputs 
 
 DOIs are actionable on the Internet: when put in URL form (http://dx.doi.org/{DOI}, these strings automatically redirect to an online landing page that offers information about the research object.  Often, but not always, the landing page contains a link to the resource itself. Where the resource is not online, the landing page indicates where to find it. For example, a DOI assigned to a physical resource such as a print book, a museum specimen, or a of scientific sample will specify the repository or collection where the resource resides.
 
-For DOI's assigned to online resources, access to the full i
-
 The DOI is NOT by itself a seal of quality. Yet information resources that are assigned DOIs tend to be of enduring value; are likely to be used and cited by others; and are maintained by a publisher or other information provider who is committed to curating and preserving the resource over time. Because an organization is committed to curating the resource over time, the DOI is considered persistent. Some say that the DOI is basically a promise to always supply information about the information resource associated with the identifier. 
 
 A DOI is considered a persistent identifier because it reliably resolves to a human- and machine-readable landing page representing the information resource. But the DOI itself is not a guarantee that the dataset or paper is available via Open Access: rather, the DOI resolves to an Open Access landing page that may (or may not) permit linking through to the desired object. Whether or not a user can access the full content depends on various circumstances unrelated to the DOI system: format of the resource, restrictions and conditions governing access; authentication requirements; software compatibility; etc.
@@ -67,7 +65,7 @@ The [International DOI System](https://www.doi.org/) is the overall infrastructu
 
 The metadata associated with the DOI is often rich enough to provide useful data for a researcher. This lesson and the next look at the array of useful public data associated with DOIs.
 
-![Anatomy of a Doi](../Figure 1.jpg")
+![Anatomy of a DOI](Figure1.jpg")
 
 ---
 
